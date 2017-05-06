@@ -3,15 +3,16 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppComponent } from './component/app.component';
-import { ItemDetailComponent } from './component/item-detail.component';
-import { ItemsComponent } from './component/items.component'
+import { AppComponent } from './app.component';
+import { ItemDetailComponent } from './item-detail/item-detail.component';
+import { ItemsComponent } from './items/items.component'
 import { ItemService } from './service/item.service'
-import { DashboardComponent } from './component/dashboard.component'
+import { DashboardComponent } from './dashboard/dashboard.component'
 
 import { AppRoutingModule } from './app-routing.module'
 
 import { AngularFireModule } from 'angularfire2';
+import { NavComponent } from './nav/nav.component';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyC_w8E3vWbLUGigBcrlFg4Xn5nXsxcLbQk",
@@ -24,7 +25,7 @@ export const firebaseConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent, ItemDetailComponent, ItemsComponent, DashboardComponent
+    AppComponent, ItemDetailComponent, ItemsComponent, DashboardComponent, NavComponent
   ],
   imports: [
     BrowserModule,
