@@ -7,12 +7,5 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'CMPE280 Shopping Cart!';
-
-  // constructor(private af: AngularFire) {
-  //   var a = this.af.database.list('/heroes');
-  //   a.subscribe(snapshots => {
-  //     console.log("firebase", snapshots);
-  //   })
-  // }
+  userName = 'Mark';
 }
