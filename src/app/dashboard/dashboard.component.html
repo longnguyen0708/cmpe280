@@ -1,14 +1,14 @@
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
+<div id="dashboardCarousel" class="carousel slide" data-ride="carousel">
+
   <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-    <li data-target="#myCarousel" data-slide-to="3"></li>
-    <li data-target="#myCarousel" data-slide-to="4"></li>
+    <li data-target="#dashboardCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#dashboardCarousel" data-slide-to="1"></li>
+    <li data-target="#dashboardCarousel" data-slide-to="2"></li>
+    <li data-target="#dashboardCarousel" data-slide-to="3"></li>
+    <li data-target="#dashboardCarousel" data-slide-to="4"></li>
   </ol>
 
-  <!-- Wrapper for slides -->
+
   <div class="carousel-inner" role="listbox">
     <div class="item active">
       <a [routerLink]="['/detail', '1']">
@@ -53,80 +53,177 @@
     </div>
   </div>
 
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+  <a class="left carousel-control" href="#dashboardCarousel" role="button" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+  <a class="right carousel-control" href="#dashboardCarousel" role="button" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
 </div>
 
+<!--  list of heading categores-->
+<div class="bar-list">
+  <div class="container bar">
+    <div class="row">
+      <!-- block pitures 1 -->
 
-<h3>Top Items</h3>
-<div class="grid grid-pad">
-  <a *ngFor="let item of items"  [routerLink]="['/detail', item.id]"  class="col-1-4">
-    <img class="item-thumbnail" [src]="item.imgUrl"/>
-    <div class="module item">
-      <h4>{{item.name}}</h4>
+      <div *ngIf="itemsClothing.length > 0" class="col-sm-5">
+        <h1>Clothing</h1>
+        <div class="col-sm-8">
+          <img class="img-thumbnail" [src]="itemsClothing[0].imgUrl" style="height: 402px; width: 100%" alt="Image">
+        </div>
+        <div class="col-sm-4">
+              <img class="img-thumbnail" [src]="itemsClothing[1].imgUrl" style="height: 134px; width: 100%" alt="Paris">
+              <img class="img-thumbnail" [src]="itemsClothing[2].imgUrl" style="height: 134px; width: 100%" alt="Paris">
+              <img class="img-thumbnail" [src]="itemsClothing[3].imgUrl" style="height: 134px; width: 100%" alt="Paris">
+        </div>
+      </div>
+
+      <div class="col-sm-1">
+          <div class="myDivider">
+          </div>
+      </div>
+      <!-- block pitures 2 -->
+      <div class="col-sm-5 col-sm-offset-1">
+        <h1>Shoes</h1>
+        <div class="col-sm-8">
+          <img [src]="myItem.imgUrl" style="height: 402px; width: 100%" alt="Paris">
+        </div>
+        <div class="col-sm-4">
+          <div>
+              <img src="assets/chicago.jpg" style="height: 134px; width: 100%" alt="Paris">
+
+          </div>
+          <div >
+              <img src="assets/4.jpg" style="height: 134px; width: 100%" alt="Paris">
+
+          </div>
+          <div>
+                <img src="assets/5.jpg" style="height: 134px; width: 100%" alt="Paris">
+
+          </div>
+        </div>
+      </div>
+      <!--  -->
     </div>
-  </a>
-</div>
-<div class="grid grid-pad">
-  <a *ngFor="let item of items"  [routerLink]="['/detail', item.id]"  class="col-1-4">
-    <img class="item-thumbnail" [src]="item.imgUrl"/>
-    <div class="module item">
-      <h4>{{item.name}}</h4>
+  </div>
+
+  <div class="container bar">
+    <div>
+      <h1>Shoes</h1>
     </div>
-  </a>
-</div>
-<div class="grid grid-pad">
-  <a *ngFor="let item of items"  [routerLink]="['/detail', item.id]"  class="col-1-4">
-    <img class="item-thumbnail" [src]="item.imgUrl"/>
-    <div class="module item">
-      <h4>{{item.name}}</h4>
+    <div class="row text-center">
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <img [src]="myItem.imgUrl" alt="Paris">
+            <p><strong>Paris</strong></p>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <img [src]="myItem.imgUrl" alt="New York">
+            <p><strong>New York</strong></p>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <img [src]="myItem.imgUrl" alt="San Francisco">
+            <p><strong>San Francisco</strong></p>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <img [src]="myItem.imgUrl" alt="San Francisco">
+            <p><strong>San Francisco</strong></p>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="container bar">
+    <div class="row">
+      <!-- block pitures 1 -->
+      <div class="col-sm-5">
+        <h1>Shoes</h1>
+        <div class="col-sm-8">
+          <img [src]="myItem.imgUrl" style="height: 402px; width: 100%" alt="Paris">
+        </div>
+        <div class="col-sm-4">
+          <div>
+              <img src="assets/chicago.jpg" style="height: 134px; width: 100%" alt="Paris">
+
+          </div>
+          <div >
+              <img src="assets/4.jpg" style="height: 134px; width: 100%" alt="Paris">
+
+          </div>
+          <div>
+                <img src="assets/5.jpg" style="height: 134px; width: 100%" alt="Paris">
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-1">
+          <div class="myDivider">
+          </div>
+      </div>
+      <!-- block pitures 2 -->
+      <div class="col-sm-5 col-sm-offset-1">
+        <h1>Shoes</h1>
+        <div class="col-sm-8">
+          <img [src]="myItem.imgUrl" style="height: 402px; width: 100%" alt="Paris">
+        </div>
+        <div class="col-sm-4">
+          <div>
+              <img src="assets/chicago.jpg" style="height: 134px; width: 100%" alt="Paris">
+
+          </div>
+          <div >
+              <img src="assets/4.jpg" style="height: 134px; width: 100%" alt="Paris">
+
+          </div>
+          <div>
+                <img src="assets/5.jpg" style="height: 134px; width: 100%" alt="Paris">
+
+          </div>
+        </div>
+      </div>
+      <!--  -->
     </div>
-  </a>
-</div>
-<div class="grid grid-pad">
-  <a *ngFor="let item of items"  [routerLink]="['/detail', item.id]"  class="col-1-4">
-    <img class="item-thumbnail" [src]="item.imgUrl"/>
-    <div class="module item">
-      <h4>{{item.name}}</h4>
+  </div>
+
+  <div class="container bar">
+    <div>
+      <h1>Shoes</h1>
     </div>
-  </a>
-</div>
-<div class="grid grid-pad">
-  <a *ngFor="let item of items"  [routerLink]="['/detail', item.id]"  class="col-1-4">
-    <img class="item-thumbnail" [src]="item.imgUrl"/>
-    <div class="module item">
-      <h4>{{item.name}}</h4>
-    </div>
-  </a>
-</div>
-<div class="grid grid-pad">
-  <a *ngFor="let item of items"  [routerLink]="['/detail', item.id]"  class="col-1-4">
-    <img class="item-thumbnail" [src]="item.imgUrl"/>
-    <div class="module item">
-      <h4>{{item.name}}</h4>
-    </div>
-  </a>
-</div>
-<div class="grid grid-pad">
-  <a *ngFor="let item of items"  [routerLink]="['/detail', item.id]"  class="col-1-4">
-    <img class="item-thumbnail" [src]="item.imgUrl"/>
-    <div class="module item">
-      <h4>{{item.name}}</h4>
-    </div>
-  </a>
-</div>
-<div class="grid grid-pad">
-  <a *ngFor="let item of items"  [routerLink]="['/detail', item.id]"  class="col-1-4">
-    <img class="item-thumbnail" [src]="item.imgUrl"/>
-    <div class="module item">
-      <h4>{{item.name}}</h4>
-    </div>
-  </a>
+    <div class="row text-center">
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <img [src]="myItem.imgUrl" alt="Paris">
+            <p><strong>Paris</strong></p>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <img [src]="myItem.imgUrl" alt="New York">
+            <p><strong>New York</strong></p>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <img [src]="myItem.imgUrl" alt="San Francisco">
+            <p><strong>San Francisco</strong></p>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <img [src]="myItem.imgUrl" alt="San Francisco">
+            <p><strong>San Francisco</strong></p>
+          </div>
+        </div>
+      </div>
+  </div>
 </div>

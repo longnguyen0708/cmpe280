@@ -21,4 +21,17 @@ export class ItemService {
     return this.firebase.database.object(`/items/${id}`);
    }
 
+   getItemsByCategory(cb, limit, category) {
+     var items = this.firebase.database.list('/items', {
+       query: {
+         limitToFirst: limit,
+         orderByChild: 'category',
+         equalTo: category,
+       }
+     })
+     items.subscribe(snapshots => {
+       console.log("getItemsByCategory", snapshots);
+       cb(snapshots);
+     })
+   }
 }

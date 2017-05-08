@@ -9,9 +9,17 @@ import { ItemService } from '../service/item.service';
 })
 
 export class DashboardComponent implements OnInit {
-  items: Item[] = [];
+  itemsClothing: Item[] = [];
+  myItem: Item = {id: 1,
+        category: "dfsd",
+        name: "Long",
+        imgUrl: "assets/4.jpg"};
   constructor(private itemService: ItemService) { }
   ngOnInit(): void {
-    this.itemService.getItems(items => this.items = items.slice(1, 5));
+    this.itemService.getItemsByCategory(items => {
+      this.itemsClothing = items;
+      this.myItem = this.itemsClothing[0];
+      console.log("myItem", this.myItem);
+    }, 4, "Clothing");
   }
 }
