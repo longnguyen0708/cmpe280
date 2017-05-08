@@ -73,6 +73,9 @@
 }
 
 /* Dropdown links */
+.navbar, .dropdown, .dropdown-menu {
+   z-index: 1001;
+}
 .dropdown-menu li a {
     color: #000 !important;
 }
