@@ -10,6 +10,8 @@ import { ItemService } from '../service/item.service';
 
 export class DashboardComponent implements OnInit {
   itemsClothing: Item[] = [];
+  itemsShoes: Item[] = [];
+  itemsPhones: Item[] = [];
   myItem: Item = {id: 1,
         category: "dfsd",
         name: "Long",
@@ -21,5 +23,13 @@ export class DashboardComponent implements OnInit {
       this.myItem = this.itemsClothing[0];
       console.log("myItem", this.myItem);
     }, 4, "Clothing");
+
+    this.itemService.getItemsByCategory(items => {
+      this.itemsShoes = items;
+    }, 4, "Shoes");
+
+    this.itemService.getItemsByCategory(items => {
+      this.itemsPhones = items;
+    }, 4, "Cell Phones");
   }
 }
