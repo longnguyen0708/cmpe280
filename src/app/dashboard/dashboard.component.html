@@ -71,7 +71,7 @@
 
       <div *ngIf="itemsClothing.length > 0" class="col-sm-5">
         <a [routerLink]="['/items']" [queryParams]="{ category: 'Clothing' }">
-          <h1>Clothing</h1>
+          <h3>Clothing</h3>
         </a>
         <div class="col-sm-8">
           <a [routerLink]="['/detail', itemsClothing[0].id]">
@@ -98,7 +98,7 @@
       <!-- block pitures 2 -->
       <div *ngIf="itemsShoes.length > 0" class="col-sm-5 col-sm-offset-1">
         <a [routerLink]="['/items']" [queryParams]="{ category: 'Shoes' }">
-          <h1>Shoes</h1>
+          <h3>Shoes</h3>
         </a>
         <div class="col-sm-8">
           <a [routerLink]="['/detail', itemsShoes[0].id]">
@@ -123,7 +123,7 @@
 
   <div class="container bar">
     <a [routerLink]="['/items']" [queryParams]="{ category: 'Phones' }">
-      <h1>Cell Phones</h1>
+      <h3>Cell Phones</h3>
     </a>
     <div class="row text-center">
         <div *ngFor="let item of itemsPhones" class="col-sm-3">
@@ -133,6 +133,7 @@
             </div>
           </a>
         </div>
+      </div>
   </div>
 
   <div class="container bar">
@@ -141,7 +142,7 @@
 
       <div *ngIf="itemsClothing.length > 0" class="col-sm-5">
         <a [routerLink]="['/items']" [queryParams]="{ category: 'Clothing' }">
-          <h1>Clothing</h1>
+          <h3>Clothing</h3>
         </a>
         <div class="col-sm-8">
           <a [routerLink]="['/detail', itemsClothing[0].id]">
@@ -168,7 +169,7 @@
       <!-- block pitures 2 -->
       <div *ngIf="itemsShoes.length > 0" class="col-sm-5 col-sm-offset-1">
         <a [routerLink]="['/items']" [queryParams]="{ category: 'Shoes' }">
-          <h1>Shoes</h1>
+          <h3>Shoes</h3>
         </a>
         <div class="col-sm-8">
           <a [routerLink]="['/detail', itemsShoes[0].id]">
@@ -193,7 +194,7 @@
 
   <div class="container bar">
     <a [routerLink]="['/items']" [queryParams]="{ category: 'Phones' }">
-      <h1>Cell Phones</h1>
+      <h3>Cell Phones</h3>
     </a>
     <div class="row text-center">
         <div *ngFor="let item of itemsPhones" class="col-sm-3">
@@ -203,5 +204,6 @@
             </div>
           </a>
         </div>
+      </div>
   </div>
 </div>
