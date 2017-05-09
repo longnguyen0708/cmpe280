@@ -12,16 +12,14 @@ export class DashboardComponent implements OnInit {
   itemsClothing: Item[] = [];
   itemsShoes: Item[] = [];
   itemsPhones: Item[] = [];
-  myItem: Item = {id: 1,
-        category: "dfsd",
-        name: "Long",
-        imgUrl: "assets/4.jpg"};
+  itemsComputers: Item[] = [];
+  itemsElectronics: Item[] = [];
+  itemsHealth: Item[] = [];
+
   constructor(private itemService: ItemService) { }
   ngOnInit(): void {
     this.itemService.getItemsByCategory(items => {
       this.itemsClothing = items;
-      this.myItem = this.itemsClothing[0];
-      console.log("myItem", this.myItem);
     }, 4, "Clothing");
 
     this.itemService.getItemsByCategory(items => {
@@ -31,5 +29,17 @@ export class DashboardComponent implements OnInit {
     this.itemService.getItemsByCategory(items => {
       this.itemsPhones = items;
     }, 4, "Cell Phones");
+
+    this.itemService.getItemsByCategory(items => {
+      this.itemsComputers = items;
+    }, 4, "Computers");
+
+    this.itemService.getItemsByCategory(items => {
+      this.itemsElectronics = items;
+    }, 4, "Electronics");
+
+    this.itemService.getItemsByCategory(items => {
+      this.itemsHealth = items;
+    }, 4, "Health Care");
   }
 }

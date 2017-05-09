@@ -140,24 +140,24 @@
     <div class="row">
       <!-- block pitures 1 -->
 
-      <div *ngIf="itemsClothing.length > 0" class="col-sm-5">
-        <a [routerLink]="['/items']" [queryParams]="{ category: 'Clothing' }">
-          <h3>Clothing</h3>
+      <div *ngIf="itemsComputers.length > 0" class="col-sm-5">
+        <a [routerLink]="['/items']" [queryParams]="{ category: 'Computers' }">
+          <h3>Computers</h3>
         </a>
         <div class="col-sm-8">
-          <a [routerLink]="['/detail', itemsClothing[0].id]">
-            <img class="img-thumbnail" [src]="itemsClothing[0].imgUrl" style="height: 402px; width: 100%" alt="Image">
+          <a [routerLink]="['/detail', itemsComputers[0].id]">
+            <img class="img-thumbnail" [src]="itemsComputers[0].imgUrl" style="height: 402px; width: 100%" alt="Image">
           </a>
         </div>
         <div class="col-sm-4">
-          <a [routerLink]="['/detail', itemsClothing[1].id]">
-              <img class="img-thumbnail" [src]="itemsClothing[1].imgUrl" style="height: 134px; width: 100%" alt="Paris">
+          <a [routerLink]="['/detail', itemsComputers[1].id]">
+              <img class="img-thumbnail" [src]="itemsComputers[1].imgUrl" style="height: 134px; width: 100%" alt="Paris">
           </a>
-          <a [routerLink]="['/detail', itemsClothing[2].id]">
-              <img class="img-thumbnail" [src]="itemsClothing[2].imgUrl" style="height: 134px; width: 100%" alt="Paris">
+          <a [routerLink]="['/detail', itemsComputers[2].id]">
+              <img class="img-thumbnail" [src]="itemsComputers[2].imgUrl" style="height: 134px; width: 100%" alt="Paris">
           </a>
-          <a [routerLink]="['/detail', itemsClothing[3].id]">
-              <img class="img-thumbnail" [src]="itemsClothing[3].imgUrl" style="height: 134px; width: 100%" alt="Paris">
+          <a [routerLink]="['/detail', itemsComputers[3].id]">
+              <img class="img-thumbnail" [src]="itemsComputers[3].imgUrl" style="height: 134px; width: 100%" alt="Paris">
           </a>
         </div>
       </div>
@@ -167,24 +167,24 @@
           </div>
       </div>
       <!-- block pitures 2 -->
-      <div *ngIf="itemsShoes.length > 0" class="col-sm-5 col-sm-offset-1">
-        <a [routerLink]="['/items']" [queryParams]="{ category: 'Shoes' }">
-          <h3>Shoes</h3>
+      <div *ngIf="itemsElectronics.length > 0" class="col-sm-5 col-sm-offset-1">
+        <a [routerLink]="['/items']" [queryParams]="{ category: 'Electronics' }">
+          <h3>Electronics</h3>
         </a>
         <div class="col-sm-8">
-          <a [routerLink]="['/detail', itemsShoes[0].id]">
-            <img class="img-thumbnail" [src]="itemsShoes[0].imgUrl" style="height: 402px; width: 100%" alt="Image">
+          <a [routerLink]="['/detail', itemsElectronics[0].id]">
+            <img class="img-thumbnail" [src]="itemsElectronics[0].imgUrl" style="height: 402px; width: 100%" alt="Image">
           </a>
         </div>
         <div class="col-sm-4">
-          <a [routerLink]="['/detail', itemsShoes[1].id]">
-              <img class="img-thumbnail" [src]="itemsShoes[1].imgUrl" style="height: 134px; width: 100%" alt="Paris">
+          <a [routerLink]="['/detail', itemsElectronics[1].id]">
+              <img class="img-thumbnail" [src]="itemsElectronics[1].imgUrl" style="height: 134px; width: 100%" alt="Paris">
           </a>
-          <a [routerLink]="['/detail', itemsShoes[2].id]">
-              <img class="img-thumbnail" [src]="itemsShoes[2].imgUrl" style="height: 134px; width: 100%" alt="Paris">
+          <a [routerLink]="['/detail', itemsElectronics[2].id]">
+              <img class="img-thumbnail" [src]="itemsElectronics[2].imgUrl" style="height: 134px; width: 100%" alt="Paris">
           </a>
-          <a [routerLink]="['/detail', itemsShoes[3].id]">
-              <img class="img-thumbnail" [src]="itemsShoes[3].imgUrl" style="height: 134px; width: 100%" alt="Paris">
+          <a [routerLink]="['/detail', itemsElectronics[3].id]">
+              <img class="img-thumbnail" [src]="itemsElectronics[3].imgUrl" style="height: 134px; width: 100%" alt="Paris">
           </a>
         </div>
       </div>
@@ -193,11 +193,11 @@
   </div>
 
   <div class="container bar">
-    <a [routerLink]="['/items']" [queryParams]="{ category: 'Phones' }">
-      <h3>Cell Phones</h3>
+    <a [routerLink]="['/items']" [queryParams]="{ category: 'Health' }">
+      <h3>Health Care</h3>
     </a>
     <div class="row text-center">
-        <div *ngFor="let item of itemsPhones" class="col-sm-3">
+        <div *ngFor="let item of itemsHealth" class="col-sm-3">
           <a [routerLink]="['/detail', item.id]">
             <div class="thumbnail">
               <img [src]="item.imgUrl" alt="img" class = "horizontal-bar">
