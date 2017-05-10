@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-nav',
@@ -8,10 +9,18 @@ import { Component, OnInit, Input } from '@angular/core';
 export class NavComponent implements OnInit {
   @Input() userName = "Long";
   @Input() cartItemNum;
-  constructor() {
+  @Input() searchQuery = "";
+  constructor(private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+  }
+
+  onSeachSubmit() {
+    console.log('seachQuery', this.searchQuery);
+    if (this.searchQuery != '') {
+      this.router.navigate(['/items'], {queryParams:{ seach: this.searchQuery}});
+    }
   }
 
 }
