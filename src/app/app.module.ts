@@ -16,7 +16,6 @@ import { AppRoutingModule } from './app-routing.module'
 
 import { NavComponent } from './nav/nav.component';
 import { LoginPageComponent } from './login-page/login-page.component';
-import { HomePageComponent } from './home-page/home-page.component';
 export const firebaseConfig = {
     apiKey: "AIzaSyC_w8E3vWbLUGigBcrlFg4Xn5nXsxcLbQk",
     authDomain: "cmpe280-e3475.firebaseapp.com",
@@ -27,13 +26,13 @@ export const firebaseConfig = {
   };
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent },
   { path: 'login', component: LoginPageComponent }
 ];
 
 @NgModule({
   declarations: [
-    AppComponent, ItemDetailComponent, ItemsComponent, DashboardComponent, NavComponent, LoginPageComponent, HomePageComponent
+    AppComponent, ItemDetailComponent, ItemsComponent, DashboardComponent, NavComponent, LoginPageComponent
+
   ],
   imports: [
     BrowserModule,
