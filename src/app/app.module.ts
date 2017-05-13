@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule} from 'angularfire2';
 
 import { AppComponent } from './app.component';
-import { AuthService } from './providers/auth.service';
+import { AuthService } from './service/auth.service';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
 import { ItemsComponent } from './items/items.component'
 import { ItemService } from './service/item.service'

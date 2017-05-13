@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router'
-import { AuthService } from '../providers/auth.service';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -8,7 +8,7 @@ import { AuthService } from '../providers/auth.service';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  @Input() userName = "Namitha Shetty";
+  @Input() userName = "";
   @Input() cartItemNum;
   @Input() searchQuery = "";
   constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute) {
