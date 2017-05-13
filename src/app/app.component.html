@@ -1,3 +1,15 @@
       <app-nav [userName]="userName" [cartItemNum]="3"></app-nav>
       <router-outlet></router-outlet>
       <div class="footer"></div>
+
+      <div class="container">
+    <div class="container">
+      <div *ngIf="isLoggedIn">
+        <p class="navbar-text navbar-right">Logged In: {{user_displayName}} ({{user_email}})<p>
+      </div>
+      <div *ngIf="!isLoggedIn">
+        <p class="navbar-text navbar-right">Logged Out</p>
+      </div>
+    </div>
+  <router-outlet></router-outlet>
+</div>
