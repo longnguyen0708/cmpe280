@@ -9,6 +9,12 @@ export class AuthService {
       method: AuthMethods.Popup
     });
   }
+  loginWithFacebook() {
+    return this.af.auth.login({
+      provider: AuthProviders.Facebook,
+      method: AuthMethods.Popup
+    });
+  }
   logout() {
     return this.af.auth.logout();
   }
