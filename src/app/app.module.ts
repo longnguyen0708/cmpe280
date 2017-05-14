@@ -10,6 +10,7 @@ import { AuthService } from './service/auth.service';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
 import { ItemsComponent } from './items/items.component'
 import { ItemService } from './service/item.service'
+import { LocationService } from './service/location.service'
 import { DashboardComponent } from './dashboard/dashboard.component'
 
 import { AppRoutingModule } from './app-routing.module'
@@ -39,7 +40,7 @@ export const firebaseConfig = {
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig)
   ],
-  providers: [ItemService, AuthService],
+  providers: [ItemService, AuthService, LocationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
