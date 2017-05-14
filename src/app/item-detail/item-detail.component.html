@@ -1,9 +1,21 @@
-<div *ngIf="item">
-  <h2>{{item.name}} details!</h2>
-  <div><label>id: </label>{{item.id}}</div>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="item.name" placeholder="name"/>
-  </div>
-  <button (click)="goBack()">Back</button>
+<div class="container">
+    <div class="row">
+        <div *ngIf="item">
+            <div class="itemImage col-md-6 col-xs-12">
+                <img [src]="item.imgUrl" class="img-responsive" alt="img">
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <div class="itemCategory">{{item.category}}</div>
+                <div class="itemName">{{item.name}}</div>
+                <ul class="itemDescription">
+                    <li>{{item.d1}}</li>
+                    <li>{{item.d2}}</li>
+                    <li>{{item.d3}}</li>
+                </ul>
+                <div class="itemPrice">Price: <span id="price">{{item.price}}</span></div>
+                <button type="button" id="addToCart" class="btn btn-warning btn-lg"(click)="addToCart()"> <span class="glyphicon glyphicon-shopping-cart"></span> Add To Cart </button>
+            </div>
+        </div>
+    </div>
 </div>
+
