@@ -10,8 +10,14 @@ export class LoginPageComponent implements OnInit {
   constructor(public authService: AuthService, private router:Router) { }
   ngOnInit() {
   }
-  login() {
+  loginWithGoogle() {
     this.authService.loginWithGoogle().then((data) => {
+      this.router.navigate(['']);
+    })
+  }
+
+  loginWithFacebook() {
+    this.authService.loginWithFacebook().then((data) => {
       this.router.navigate(['']);
     })
   }
