@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule} from 'angularfire2';
 
 import { AppComponent } from './app.component';
-import { AuthService } from './providers/auth.service';
+import { AuthService } from './service/auth.service';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
 import { ItemsComponent } from './items/items.component'
 import { ItemService } from './service/item.service'
@@ -16,6 +16,7 @@ import { AppRoutingModule } from './app-routing.module'
 
 import { NavComponent } from './nav/nav.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+
 export const firebaseConfig = {
     apiKey: "AIzaSyC_w8E3vWbLUGigBcrlFg4Xn5nXsxcLbQk",
     authDomain: "cmpe280-e3475.firebaseapp.com",
@@ -25,9 +26,6 @@ export const firebaseConfig = {
     messagingSenderId: "500269806045"
   };
 
-const routes: Routes = [
-  { path: 'login', component: LoginPageComponent }
-];
 
 @NgModule({
   declarations: [
@@ -39,8 +37,7 @@ const routes: Routes = [
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(firebaseConfig),
-    RouterModule.forRoot(routes)
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [ItemService, AuthService],
   bootstrap: [AppComponent]

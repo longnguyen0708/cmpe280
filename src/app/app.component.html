@@ -1,11 +1,8 @@
-<div class="container">
-    <div class="container">
-      <div *ngIf="isLoggedIn">
-        <p class="navbar-text navbar-right">Logged In: {{user_displayName}} ({{user_email}})<p>
-      </div>
-      <div *ngIf="!isLoggedIn">
-        <p class="navbar-text navbar-right">Logged Out</p>
-      </div>
-    </div>
-  <router-outlet></router-outlet>
+
+<div *ngIf="isLoggedIn">
+    <app-nav [userName]="user_displayName" [userEmail]="user_email"></app-nav>
+</div>
+    <router-outlet></router-outlet>
+<div *ngIf="isLoggedIn">
+    <div class="footer"></div>
 </div>
