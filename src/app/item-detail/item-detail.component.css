@@ -35,3 +35,7 @@
 #addToCart{
    margin-top: 20px;
 }
+
+.container {
+  min-height: 600px;
+}

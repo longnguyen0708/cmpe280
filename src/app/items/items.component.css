@@ -76,3 +76,7 @@ button:hover {
   font-family: Raleway;
   font-weight: 900;
 }
+
+.container {
+  min-height: 600px;
+}
