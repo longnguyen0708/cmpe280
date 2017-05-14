@@ -1,15 +1,50 @@
-<h2>My Heroes</h2>
-<ul class="items">
-  <li *ngFor="let item of items"
-    [class.selected]="item === selectedItem"
-    (click)="onSelect(item)">
-    <span class="badge">{{item.id}}</span> {{item.name}}
-  </li>
-</ul>
+<!--<div class="spacing-container"></div>
+<div class="container" *ngIf="selectedItem">
+	<div class="row">
+		<div class="card">
+			<h2> {{selectedItem.name | uppercase}} is picked up </h2>
 
-<div *ngIf="selectedItem">
+			<button class="pull-right btn btn-primary" (click)="gotoDetail()">View Item Details</button>
+		</div>
+	</div>
+</div>
+-->
+
+
+
+<div >
   <h2>
-    {{selectedItem.name | uppercase}} is picked up
+    
   </h2>
-  <button (click)="gotoDetail()">View Details</button>
+  
+</div>
+
+<div class="container">
+	
+	<div class="row">
+	<div *ngFor="let item of items | searchPipe:searchString | categoryPipe:category;  let i=index" [class.selected]="item === selectedItem" (click)="onSelect(item)" >
+		<div class="clearfix" *ngIf="i%3 == 0"></div>
+			<div class="col-md-4 col-sm-6"  >
+				
+					<div class="card">
+					  <div class="card-img-top">
+					    <div class="image"><img src="{{item.imgUrl}}" class="img-responsive img"></div>
+					  </div>
+					  <hr>
+					 
+					  <div class="card-block">
+					    <h4 class="card-title text-center">{{item.name}}</h4>
+					    <p align="center" style="color:#AAA" class="card-text">Category: <span style="font-weight:700; color: #BBB;">{{item.category}}</span></p>
+					    <p align="center" style="color:#AAA" class="card-text">Category: <span style="font-weight:700; color: #BBB;">{{item.price}}</span></p>
+					     <!--<h5 style="color:#AAA" align="center"> <ul> <li> {{item.d1}}</li></ul> </h5>-->
+					     <hr>
+					     <div align="center">
+
+					     	<button align="center" class="btn btn-danger" (click)="gotoDetail(this.item.id)">View Item Details</button>
+					     </div>
+					  </div>
+					</div>
+			</div>
+		</div>
+	</div>
 </div>

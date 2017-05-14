@@ -17,6 +17,8 @@ import { AppRoutingModule } from './app-routing.module'
 
 import { NavComponent } from './nav/nav.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { SearchPipePipe } from './search-pipe.pipe';
+import { CategoryPipePipe } from './category-pipe.pipe';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyC_w8E3vWbLUGigBcrlFg4Xn5nXsxcLbQk",
@@ -30,7 +32,7 @@ export const firebaseConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent, ItemDetailComponent, ItemsComponent, DashboardComponent, NavComponent, LoginPageComponent
+    AppComponent, ItemDetailComponent, ItemsComponent, DashboardComponent, NavComponent, LoginPageComponent, SearchPipePipe, CategoryPipePipe
 
   ],
   imports: [

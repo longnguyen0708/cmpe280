@@ -1,6 +1,5 @@
 .selected {
   background-color: #CFD8DC !important;
-  color: white;
 }
 .items {
   margin: 0 0 2em 0;
@@ -25,7 +24,6 @@
 }
 .items li.selected:hover {
   background-color: #BBD8DC !important;
-  color: white;
 }
 .items .text {
   position: relative;
@@ -47,13 +45,34 @@
 }
 button {
   font-family: Arial;
-  background-color: #eee;
   border: none;
   padding: 5px 10px;
   border-radius: 4px;
   cursor: pointer;
   cursor: hand;
+  overflow: auto;
 }
 button:hover {
   background-color: #cfd8dc;
+}
+
+.card {
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.2);
+  height: 100%;
+}
+.image {
+  width: 100%;
+  height: auto;
+  margin: 10px;
+  transition: 0.1s linear;
+  background-size: cover;
+  background-position: center center;
+}
+
+.card-title {
+  margin-bottom: 1rem;
+  font-family: Raleway;
+  font-weight: 900;
 }
