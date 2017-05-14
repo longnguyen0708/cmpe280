@@ -2,8 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
+import { AngularFireModule} from 'angularfire2';
 
 import { AppComponent } from './app.component';
+import { AuthService } from './service/auth.service';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
 import { ItemsComponent } from './items/items.component'
 import { ItemService } from './service/item.service'
@@ -12,8 +15,8 @@ import { DashboardComponent } from './dashboard/dashboard.component'
 
 import { AppRoutingModule } from './app-routing.module'
 
-import { AngularFireModule } from 'angularfire2';
 import { NavComponent } from './nav/nav.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyC_w8E3vWbLUGigBcrlFg4Xn5nXsxcLbQk",
@@ -24,9 +27,11 @@ export const firebaseConfig = {
     messagingSenderId: "500269806045"
   };
 
+
 @NgModule({
   declarations: [
-    AppComponent, ItemDetailComponent, ItemsComponent, DashboardComponent, NavComponent
+    AppComponent, ItemDetailComponent, ItemsComponent, DashboardComponent, NavComponent, LoginPageComponent
+
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,7 @@ export const firebaseConfig = {
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig)
   ],
-  providers: [ItemService, LocationService],
+  providers: [ItemService, AuthService, LocationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router'
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,13 +8,21 @@ import { Router, ActivatedRoute } from '@angular/router'
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  @Input() userName = "Long";
-  @Input() cartItemNum;
+  @Input() userName = "Namitha Shetty";
+  firstName = "firstName";
+  @Input() userEmail = "";
+  @Input() cartItemNum = 3;
   @Input() searchQuery = "";
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    this.firstName = this.userName.split(" ")[0];
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['login']);
   }
 
   onSeachSubmit() {
