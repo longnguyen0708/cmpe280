@@ -11,9 +11,9 @@ export class AppComponent implements OnInit{
   userName = 'Mark';
   constructor(private locationService: LocationService) { }
   ngOnInit(): void {
-    var location = this.locationService.getLocation().subscribe((position) => {
-      console.log('position', position)
-      
+    var location = this.locationService.getLocation().subscribe((location) => {
+      console.log('location', location)
+
     })
   }
 }
