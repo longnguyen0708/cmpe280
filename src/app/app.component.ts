@@ -43,7 +43,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    var location = this.locationService.getLocation().subscribe((location) => {
+    this.locationService.currLocation$.subscribe((location) => {
       console.log('location', location)
 
     })

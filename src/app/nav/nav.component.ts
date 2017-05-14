@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router'
 import { AuthService } from '../service/auth.service';
+import { LocationService } from '../service/location.service'
+import { Location } from '../model/location';
 
 @Component({
   selector: 'app-nav',
@@ -13,11 +15,18 @@ export class NavComponent implements OnInit {
   @Input() userEmail = "";
   @Input() cartItemNum = 3;
   @Input() searchQuery = "";
-  constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute) {
+  location: Location;
+
+  constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute,
+              private locationService: LocationService) {
   }
 
   ngOnInit() {
     this.firstName = this.userName.split(" ")[0];
+    this.locationService.currLocation$.subscribe((location) => {
+      console.log('location nav', location)
+      this.location = location;
+    })
   }
 
   logout() {
