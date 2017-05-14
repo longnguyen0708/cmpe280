@@ -3,4 +3,6 @@ export class Item {
   name: string;
   imgUrl: string;
   category: string;
+  price: string;
+  description: string;
 }

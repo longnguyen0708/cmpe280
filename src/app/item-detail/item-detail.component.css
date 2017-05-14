@@ -1,29 +1,37 @@
-label {
-  display: inline-block;
-  width: 3em;
-  margin: .5em 0;
-  color: #607D8B;
-  font-weight: bold;
+.itemImage img{
+  max-height: 500px;
+  padding: 20px 0;
+  margin: 0 auto;
 }
-input {
-  height: 2em;
-  font-size: 1em;
-  padding-left: .4em;
-}
-button {
+
+.itemCategory{
+  font-size: 15px;
+  font-weight: 500;
   margin-top: 20px;
-  font-family: Arial;
-  background-color: #eee;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer; cursor: hand;
+  color:#5b5555;
 }
-button:hover {
-  background-color: #cfd8dc;
+
+.itemName{
+  font-size: 20px;
+  font-weight: 700;
 }
-button:disabled {
-  background-color: #eee;
-  color: #ccc;
-  cursor: auto;
+
+.itemDescription{
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+.itemPrice{
+  font-size: 22px;
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+#price{
+  color: #d85420;
+}
+
+#addToCart{
+   margin-top: 20px;
 }
