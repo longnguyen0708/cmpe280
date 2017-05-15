@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartItem } from '../model/cartItem';
 import { CartService } from '../service/cart.service';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { ActivatedRoute, Params } from '@angular/router'
 
 @Component({
   selector: 'app-cart',
@@ -12,15 +13,12 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
 export class CartComponent implements OnInit {
   cartItems: FirebaseListObservable<CartItem[]>;
   orderItems: FirebaseListObservable<CartItem[]>;
-  db: AngularFireDatabase;
-
   total: number = 0;
 
   //constructor(private cartService: CartService) { }
-  constructor(db: AngularFireDatabase) {
+  constructor(private db: AngularFireDatabase, private route: ActivatedRoute) {
     console.log("constructor clalled");
-    this.cartItems = db.list('/cart/1');
-    this.orderItems = db.list('/orders/1')
+
     // this.cartItems.forEach(element => {
     //   console.log(element)
     // /*  element.unit_price
@@ -32,7 +30,12 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getTotal()
+    this.route.params
+      .subscribe((params: Params) => {
+        this.cartItems = this.db.list(`/cart/${params['id']}`);
+        this.orderItems = this.db.list(`/orders/${params['id']}`);
+        this.getTotal()
+      })
   }
 
   deleteItem(key: string){

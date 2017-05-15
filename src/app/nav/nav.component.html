@@ -67,7 +67,7 @@
             <li><a href="#" (click)="logout()">Sign out</a></li>
           </ul>
         </li>
-        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> <span class="badge">{{cartItemNum}}</span></a></li>
+        <li><a [routerLink]="['/cart', uid]"><span class="glyphicon glyphicon-shopping-cart"></span> <span class="badge">{{cartItemNum}}</span></a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

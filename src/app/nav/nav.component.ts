@@ -10,7 +10,7 @@ import { AuthService } from '../service/auth.service';
 export class NavComponent implements OnInit {
   @Input() userName = "Namitha Shetty";
   firstName = "firstName";
-  @Input() userEmail = "";
+  @Input() uid = "";
   @Input() cartItemNum = 3;
   @Input() searchQuery = "";
   constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute) {

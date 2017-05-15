@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'detail/:id', component: ItemDetailComponent },
   { path: 'items',     component: ItemsComponent },
   { path: 'login', component: LoginPageComponent },
-  { path: 'cart', component: CartComponent }
+  { path: 'cart/:id', component: CartComponent }
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],

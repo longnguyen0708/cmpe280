@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   //private user_displayName_fb: String;
   private user_email: String;
   //private user_email_fb: String;
+  private uid: String;
   constructor(public authService: AuthService, private router: Router, private locationService: LocationService) {
     this.authService.af.auth.subscribe(
       (auth) => {
@@ -32,6 +33,7 @@ export class AppComponent implements OnInit {
           this.isLoggedIn = true;
           this.user_displayName = auth.google.displayName;
           this.user_email = auth.google.email;
+          this.uid = auth.uid;
           //this.user_displayName_fb = auth.facebook.displayName;
           //this.user_email_fb = auth.facebook.email;
           console.log("Logged in");
