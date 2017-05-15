@@ -18,28 +18,32 @@ export class DashboardComponent implements OnInit {
 
   constructor(private itemService: ItemService) { }
   ngOnInit(): void {
-    this.itemService.getItemsByCategory(items => {
-      this.itemsClothing = items;
-    }, 4, "Clothing");
+    let uid = localStorage.getItem('uid');
+    console.log('after logout', uid);
+    if (uid != null) {
+      this.itemService.getItemsByCategory(items => {
+        this.itemsClothing = items;
+      }, 4, "Clothing");
 
-    this.itemService.getItemsByCategory(items => {
-      this.itemsShoes = items;
-    }, 4, "Shoes");
+      this.itemService.getItemsByCategory(items => {
+        this.itemsShoes = items;
+      }, 4, "Shoes");
 
-    this.itemService.getItemsByCategory(items => {
-      this.itemsPhones = items;
-    }, 4, "Cell Phones");
+      this.itemService.getItemsByCategory(items => {
+        this.itemsPhones = items;
+      }, 4, "Cell Phones");
 
-    this.itemService.getItemsByCategory(items => {
-      this.itemsComputers = items;
-    }, 4, "Computers");
+      this.itemService.getItemsByCategory(items => {
+        this.itemsComputers = items;
+      }, 4, "Computers");
 
-    this.itemService.getItemsByCategory(items => {
-      this.itemsElectronics = items;
-    }, 4, "Electronics");
+      this.itemService.getItemsByCategory(items => {
+        this.itemsElectronics = items;
+      }, 4, "Electronics");
 
-    this.itemService.getItemsByCategory(items => {
-      this.itemsHealth = items;
-    }, 4, "Health Care");
+      this.itemService.getItemsByCategory(items => {
+        this.itemsHealth = items;
+      }, 4, "Health Care");
+    }
   }
 }

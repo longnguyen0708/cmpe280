@@ -37,6 +37,7 @@ export class NavComponent implements OnInit {
 
   logout() {
     this.authService.logout();
+    localStorage.removeItem('uid');
     this.router.navigate(['login']);
   }
 
