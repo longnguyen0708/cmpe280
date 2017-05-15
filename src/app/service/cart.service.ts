@@ -10,12 +10,8 @@ export class CartService {
   constructor(private firebase: AngularFire) {
   }
 
-  getCartItems(cb, user_id) {
-    var cartItems = this.firebase.database.list(`/cart/${user_id}`);
-     cartItems.subscribe(snapshots => {
-       console.log("cartItems", snapshots);
-       cb(snapshots);
-     })
+  getCart(uid) : FirebaseListObservable<CartItem[]>{
+    return this.firebase.database.list(`/cart/${uid}`);
   }
 
   addToCart(uid: string, item: Item) {

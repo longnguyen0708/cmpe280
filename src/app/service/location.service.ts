@@ -13,7 +13,7 @@ export class LocationService {
   currLocation$ = this.currLocation.asObservable();
 
   constructor(private http: Http) {
-    this.getLocation();
+    //this.getLocation();
   }
 
   private getLocation(){
