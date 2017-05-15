@@ -5,6 +5,8 @@ import { ItemsComponent }      from './items/items.component';
 import { ItemDetailComponent }  from './item-detail/item-detail.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { CartComponent }  from './cart/cart.component';
+import { OrderHistoryComponent }  from './orderhistory/orderhistory.component';
+import { OrderDetailComponent }  from './orderdetails/orderdetails.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -12,7 +14,9 @@ const routes: Routes = [
   { path: 'detail/:id', component: ItemDetailComponent },
   { path: 'items',     component: ItemsComponent },
   { path: 'login', component: LoginPageComponent },
-  { path: 'cart/:id', component: CartComponent }
+  { path: 'cart', component: CartComponent },
+  { path: 'orders', component: OrderHistoryComponent },
+  { path: 'orderdetail', component: OrderDetailComponent }
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],

@@ -20,7 +20,11 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { SearchPipePipe } from './search-pipe.pipe';
 import { CategoryPipePipe } from './category-pipe.pipe';
 import { CartComponent } from './cart/cart.component';
-import { CartService } from './service/cart.service'
+import { CartService } from './service/cart.service';
+import { OrderHistoryComponent } from './orderhistory/orderhistory.component';
+import { OrderDetailComponent } from './orderdetails/orderdetails.component'
+import { OrderHistoryService } from './service/orderhistory.service';
+import { OrderDetailService } from './service/orderdetail.service';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyC_w8E3vWbLUGigBcrlFg4Xn5nXsxcLbQk",
@@ -34,7 +38,7 @@ export const firebaseConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent, ItemDetailComponent, ItemsComponent, DashboardComponent, NavComponent, LoginPageComponent, SearchPipePipe, CategoryPipePipe, CartComponent
+    AppComponent, ItemDetailComponent, ItemsComponent, DashboardComponent, NavComponent, LoginPageComponent, SearchPipePipe, CategoryPipePipe, CartComponent, OrderHistoryComponent, OrderDetailComponent
 
   ],
   imports: [
@@ -44,7 +48,7 @@ export const firebaseConfig = {
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig)
   ],
-  providers: [ItemService, AuthService, LocationService, CartService ],
+  providers: [ItemService, AuthService, LocationService, CartService, OrderHistoryService, OrderDetailService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
