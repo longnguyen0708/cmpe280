@@ -34,6 +34,7 @@ export class AppComponent implements OnInit {
           this.user_displayName = auth.google.displayName;
           this.user_email = auth.google.email;
           this.uid = auth.uid;
+          localStorage.setItem('uid', auth.uid);
           //this.user_displayName_fb = auth.facebook.displayName;
           //this.user_email_fb = auth.facebook.email;
           console.log("Logged in");

@@ -1,5 +1,5 @@
 export class CartItem {
-  user_id:  number;
+  user_id:  string;
   item_id: number;
   name: string;
   imgUrl: string;
