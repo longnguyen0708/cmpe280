@@ -13,9 +13,10 @@
                     <li>{{item.d3}}</li>
                 </ul>
                 <div class="itemPrice">Price: <span id="price">{{item.price}}</span></div>
-
-                    <button type="button" id="addToCart" class="btn btn-warning btn-lg"(click)="addToCart()"> <span class="glyphicon glyphicon-shopping-cart"></span> Add To Cart </button>
-                  
+                <div class="popup">
+                    <button type="button" id="addToCart" class="btn btn-warning btn-lg"(click)="addToCart();popupAddToCartOK()"> <span class="glyphicon glyphicon-shopping-cart"></span> Add To Cart </button>
+                    <span class="popuptext" id="myPopup">Item has been added to the Cart!</span>
+                </div>
             </div>
         </div>
     </div>

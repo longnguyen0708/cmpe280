@@ -45,9 +45,10 @@ export class ItemDetailComponent implements OnInit{
     this.popupAddToCartOK;
   }
 
-  //please set the popup in html for this
   popupAddToCartOK() {
     console.log(this.uid, 'addToCartOK', this.item.id);
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
     this.addToCartOK = true;
   }
 }
