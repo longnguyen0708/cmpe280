@@ -13,10 +13,10 @@ export class LocationService {
   currLocation$ = this.currLocation.asObservable();
 
   constructor(private http: Http) {
-    this.getLocation();
+
   }
 
-  private getLocation(){
+  public getLocation(){
       if (window.navigator && window.navigator.geolocation) {
         window.navigator.geolocation.getCurrentPosition((position) => {
           console.log('inside position', position)

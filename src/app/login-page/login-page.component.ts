@@ -19,6 +19,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   loginWithFacebook() {
+    this.authService.loginWithFacebook()
     // this.authService.loginWithFacebook().then((data) => {
     //   this.router.navigate(['']);
     // })

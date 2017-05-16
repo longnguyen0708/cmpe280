@@ -22,27 +22,7 @@ export class AppComponent implements OnInit {
   private uid: String;
   user: Observable<firebase.User>;
   constructor(public authService: AuthService, private router: Router, private locationService: LocationService) {
-    this.user = this.authService.afAuth.authState;
-    this.user.subscribe(auth => {
-      console.log('user', auth)
-      if (auth == null) {
-            console.log("Logged out");
-            this.isLoggedIn = false;
-            this.user_displayName = '';
-            this.user_email = '';
-            //this.user_displayName_fb = '';
-            //this.user_email_fb = '';
-            this.router.navigate(['login']);
-          }else {
-            this.isLoggedIn = true;
-             this.user_displayName = auth.displayName;
-             this.user_email = auth.email;
-             this.uid = auth.uid;
-             localStorage.setItem('uid', auth.uid);
-             console.log("Logged in");
-             console.log(auth);
-             this.router.navigate(['']);
-          }
+
           // }else if (auth.facebook){
           //   this.isLoggedIn = true;
           //   this.user_displayName = auth.facebook.displayName;
@@ -62,7 +42,7 @@ export class AppComponent implements OnInit {
           //   console.log(auth);
           //   this.router.navigate(['']);
           // }
-    })
+  //  })
 
   //   this.isLoggedIn = true;
   // //  this.router.navigate(['']);
@@ -100,9 +80,27 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // var location = this.locationService.getLocation().subscribe((location) => {
-    //   console.log('location', location)
-    //
-    // })
+    this.user = this.authService.afAuth.authState;
+    this.user.subscribe(auth => {
+      console.log('user', auth)
+      if (auth == null) {
+            console.log("Logged out");
+            this.isLoggedIn = false;
+            this.user_displayName = '';
+            this.user_email = '';
+            //this.user_displayName_fb = '';
+            //this.user_email_fb = '';
+            this.router.navigate(['login']);
+          }else {
+            this.isLoggedIn = true;
+             this.user_displayName = auth.displayName;
+             this.user_email = auth.email;
+             this.uid = auth.uid;
+             localStorage.setItem('uid', auth.uid);
+             this.locationService.getLocation();
+             console.log("Logged in");
+             this.router.navigate(['']);
+          }
+    })
   }
 }

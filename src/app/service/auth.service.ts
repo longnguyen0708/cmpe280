@@ -14,12 +14,14 @@ export class AuthService {
     // });
     return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
-  // loginWithFacebook() {
+   loginWithFacebook() :firebase.Promise<any>{
+     return this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
   //   return this.af.auth.login({
   //     provider: AuthProviders.Facebook,
   //     method: AuthMethods.Popup
   //   });
-  // }
+   }
+
   logout() {
     this.afAuth.auth.signOut();
   }
