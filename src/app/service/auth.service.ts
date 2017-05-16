@@ -1,34 +1,38 @@
 import { Injectable } from '@angular/core';
-import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
+//import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
+
 @Injectable()
 export class AuthService {
   userid: string
-  constructor(public af: AngularFire) { }
+  constructor(public afAuth: AngularFireAuth) { }
   loginWithGoogle() {
-    return this.af.auth.login({
-      provider: AuthProviders.Google,
-      method: AuthMethods.Popup
-    });
+    // return this.af.auth.login({
+    //   provider: AuthProviders.Google,
+    //   method: AuthMethods.Popup
+    // });
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
-  loginWithFacebook() {
-    return this.af.auth.login({
-      provider: AuthProviders.Facebook,
-      method: AuthMethods.Popup
-    });
-  }
+  // loginWithFacebook() {
+  //   return this.af.auth.login({
+  //     provider: AuthProviders.Facebook,
+  //     method: AuthMethods.Popup
+  //   });
+  // }
   logout() {
-    return this.af.auth.logout();
+    this.afAuth.auth.signOut();
   }
   getuserid(){
-  this.af.auth.subscribe(
-    (auth) => {
-      if (auth == null) {
-        console.log("Logged out");
-      } else {
-        this.userid = auth.uid;
-      }
-    }
-  );
+  // this.afAuth.auth.subscribe(
+  //   (auth) => {
+  //     if (auth == null) {
+  //       console.log("Logged out");
+  //     } else {
+  //       this.userid = auth.uid;
+  //     }
+  //   }
+  // );
   return this.userid;
 }
 }
