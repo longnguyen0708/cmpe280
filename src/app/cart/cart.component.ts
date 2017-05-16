@@ -30,6 +30,7 @@ export class CartComponent implements OnInit {
     console.log("constructor clalled");
     this.userid = localStorage.getItem('uid');//this.authService.getuserid();
     this.cartItems = db.list(`/cart/${this.userid}`);
+    this.orderDetailItems = db.list(`/orderdetails/${this.userid}`);
     this.orderHistoryItems = db.list(`/orders/${this.userid}`);
     console.log("the user id is " + this.authService.getuserid())
 
@@ -82,7 +83,6 @@ export class CartComponent implements OnInit {
           })
         }
 
-          this.orderDetailItems = this.db.list(`/orderdetails/${this.userid}`);
           this.total += items[i].qty * items[i].unit_price;
           let orderDetailItem = new OrderDetailItem();
           orderDetailItem.user_id = this.userid;
