@@ -40,7 +40,7 @@
   		<td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
   		<td colspan="2" class="hidden-xs"></td>
   		<td class="hidden-xs text-center"><strong>Total ${{total | number:'1.2-2'}}</strong></td>
-  		<td><a class="btn btn-success btn-block" (click)="placeOrder()">Place Order <i class="fa fa-angle-right"></i></a></td>
+  		<td><a [routerLink]="['/orders']" class="btn btn-success btn-block" (click)="placeOrder()">Place Order <i class="fa fa-angle-right"></i></a></td>
   	</tr>
   </tfoot>
   </table>

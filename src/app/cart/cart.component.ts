@@ -81,14 +81,7 @@ export class CartComponent implements OnInit {
             orderKeyhere = ref.key
             console.log("orderKeyhere"+orderKeyhere)
           })
-          .then(function(){
-            console.log("orderKeyhere in then "+orderKeyhere)
-
-          })
-          console.log("orderKeyhere outside push loop"+orderKeyhere)
-
-        } else {
-          console.log("orderKeyhere inside else loop"+orderKeyhere)
+        }
 
           this.orderDetailItems = this.firebase.database.list(`/orderdetails/${this.userid}`);
           this.total += items[i].qty * items[i].unit_price;
@@ -100,12 +93,18 @@ export class CartComponent implements OnInit {
           orderDetailItem.qty = items[i].qty;
           orderDetailItem.unit_price = items[i].unit_price;
           orderDetailItem.order_id = timestamp.toString();
-          this.orderDetailItems.push(orderDetailItem)
+          this.orderDetailItems.push(orderDetailItem).then(function(ref){
+            console.log("completed insertion into order details");
+          })
 
+          if ( i == items.length-1 ){
+            this.cartItems.remove();
+            console.log("removing cart items");
+          }
         }
-      }
-      //this.orderHistoryItems.update(this.orderKey,{order_total: this.total})
 
+      //this.orderHistoryItems.update(this.orderKey,{order_total: this.total})
     })
   }
+
 }
