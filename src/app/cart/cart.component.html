@@ -25,7 +25,7 @@
   		<td data-th="Quantity">
   			<input type="number" #qty class="form-control text-center" value={{item.qty}}>
   		</td>
-  		<td data-th="Subtotal" class="text-center">{{(item.unit_price*item.qty)}}</td>
+  		<td data-th="Subtotal" class="text-center">{{(item.unit_price*item.qty) | number:'1.2-2'}}</td>
   		<td class="actions" data-th="">
   			<button class="btn btn-info btn-sm" (click)="updateItem(item.$key, qty.value)"><i class="fa fa-refresh"></i></button>
   			<button class="btn btn-danger btn-sm" (click)="deleteItem(item.$key)"><i class="fa fa-trash-o"></i></button>
@@ -34,12 +34,12 @@
   </tbody>
   <tfoot>
   	<tr class="visible-xs">
-  		<td class="text-center"><strong>Total {{total}}</strong></td>
+  		<td class="text-center"><strong>Total {{total | number:'1.2-2'}}</strong></td>
   	</tr>
   	<tr>
   		<td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
   		<td colspan="2" class="hidden-xs"></td>
-  		<td class="hidden-xs text-center"><strong>Total ${{total}}</strong></td>
+  		<td class="hidden-xs text-center"><strong>Total ${{total | number:'1.2-2'}}</strong></td>
   		<td><a class="btn btn-success btn-block" (click)="placeOrder()">Place Order <i class="fa fa-angle-right"></i></a></td>
   	</tr>
   </tfoot>
