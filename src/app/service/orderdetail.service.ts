@@ -10,7 +10,7 @@ export class OrderDetailService {
   }
 
   getOrderDetails(cb) {
-    var userid = this.authService.getuserid();
+    var userid = localStorage.getItem('uid');//this.authService.getuserid();
     var orderDetailItems = this.db.list(`/orderdetails/${userid}`);
      orderDetailItems.subscribe(snapshots => {
        console.log("orderDetails", snapshots);

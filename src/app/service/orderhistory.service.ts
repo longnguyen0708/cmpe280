@@ -10,7 +10,7 @@ export class OrderHistoryService {
   }
 
   getOrderHistory(cb) {
-    var userid = this.authService.getuserid();
+    var userid = localStorage.getItem('uid');//this.authService.getuserid();
     var orderHistoryItems = this.db.list(`/orders/${userid}`);
      orderHistoryItems.subscribe(snapshots => {
        console.log("orderHistory", snapshots);

@@ -28,7 +28,7 @@ export class CartComponent implements OnInit {
     console.log("constructor clalled");
 
     console.log("constructor clalled");
-    this.userid = this.authService.getuserid();
+    this.userid = localStorage.getItem('uid');//this.authService.getuserid();
     this.cartItems = db.list(`/cart/${this.userid}`);
     this.orderHistoryItems = db.list(`/orders/${this.userid}`);
     console.log("the user id is " + this.authService.getuserid())

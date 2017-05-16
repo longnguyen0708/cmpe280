@@ -23,9 +23,49 @@ export class AppComponent implements OnInit {
   user: Observable<firebase.User>;
   constructor(public authService: AuthService, private router: Router, private locationService: LocationService) {
     this.user = this.authService.afAuth.authState;
-    console.log('user', this.user)
-    this.isLoggedIn = true;
-    this.router.navigate(['']);
+    this.user.subscribe(auth => {
+      console.log('user', auth)
+      if (auth == null) {
+            console.log("Logged out");
+            this.isLoggedIn = false;
+            this.user_displayName = '';
+            this.user_email = '';
+            //this.user_displayName_fb = '';
+            //this.user_email_fb = '';
+            this.router.navigate(['login']);
+          }else {
+            this.isLoggedIn = true;
+             this.user_displayName = auth.displayName;
+             this.user_email = auth.email;
+             this.uid = auth.uid;
+             localStorage.setItem('uid', auth.uid);
+             console.log("Logged in");
+             console.log(auth);
+             this.router.navigate(['']);
+          }
+          // }else if (auth.facebook){
+          //   this.isLoggedIn = true;
+          //   this.user_displayName = auth.facebook.displayName;
+          //   this.user_email = auth.facebook.email;
+          //   this.uid = auth.uid;
+          //   localStorage.setItem('uid', auth.uid);
+          //   console.log("Logged in");
+          //   console.log(auth);
+          //   this.router.navigate(['']);
+          // }else if (auth.google){
+          //   this.isLoggedIn = true;
+          //   this.user_displayName = auth.google.displayName;
+          //   this.user_email = auth.google.email;
+          //   this.uid = auth.uid;
+          //   localStorage.setItem('uid', auth.uid);
+          //   console.log("Logged in");
+          //   console.log(auth);
+          //   this.router.navigate(['']);
+          // }
+    })
+
+  //   this.isLoggedIn = true;
+  // //  this.router.navigate(['']);
     // this.authService.afAuth.auth.subscribe(
     //   (auth) => {
     //     if (auth == null) {

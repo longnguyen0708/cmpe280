@@ -7,12 +7,12 @@ import * as firebase from 'firebase/app';
 export class AuthService {
   userid: string
   constructor(public afAuth: AngularFireAuth) { }
-  loginWithGoogle() {
+  loginWithGoogle() :firebase.Promise<any>{
     // return this.af.auth.login({
     //   provider: AuthProviders.Google,
     //   method: AuthMethods.Popup
     // });
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
   // loginWithFacebook() {
   //   return this.af.auth.login({
@@ -24,15 +24,15 @@ export class AuthService {
     this.afAuth.auth.signOut();
   }
   getuserid(){
-  // this.afAuth.auth.subscribe(
-  //   (auth) => {
-  //     if (auth == null) {
-  //       console.log("Logged out");
-  //     } else {
-  //       this.userid = auth.uid;
-  //     }
-  //   }
-  // );
-  return this.userid;
-}
+    this.afAuth.authState.subscribe(
+      (auth) => {
+        if (auth == null) {
+          console.log("Logged out");
+        } else {
+          this.userid = auth.uid;
+        }
+      }
+    );
+    return this.userid;
+  }
 }
