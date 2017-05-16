@@ -1,8 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CartItem } from '../model/cartItem';
 import { CartService } from '../service/cart.service';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { ActivatedRoute, Params } from '@angular/router'
+import { OrderHistoryItem } from '../model/orderHistoryItem';
+import { OrderDetailItem } from '../model/orderDetailItem';
+import { AngularFire } from 'angularfire2';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-cart',
@@ -14,28 +18,32 @@ export class CartComponent implements OnInit {
   cartItems: FirebaseListObservable<CartItem[]>;
   orderItems: FirebaseListObservable<CartItem[]>;
   total: number = 0;
+  orderHistoryItems: FirebaseListObservable<OrderHistoryItem[]>;
+  orderDetailItems: FirebaseListObservable<OrderDetailItem[]>;
+  orderKey: string
+  db: AngularFireDatabase;
+  userid: string = ""
 
   //constructor(private cartService: CartService) { }
-  constructor(private db: AngularFireDatabase, private route: ActivatedRoute) {
+  constructor(db: AngularFireDatabase, private route: ActivatedRoute, private authService: AuthService, private firebase: AngularFire) {
     console.log("constructor clalled");
 
-    // this.cartItems.forEach(element => {
-    //   console.log(element)
-    // /*  element.unit_price
-    //   for(var i = 0 ; i < element.length; i++){
-    //     total += element[i].qty * element[0].unit_price
-    //   }*/
-    // });
+    console.log("constructor clalled");
+    this.userid = this.authService.getuserid();
+    this.cartItems = db.list(`/cart/${this.userid}`);
+    this.orderHistoryItems = db.list(`/orders/${this.userid}`);
+    console.log("the user id is " + this.authService.getuserid())
 
   }
 
   ngOnInit(): void {
-    this.route.params
+    this.getTotal()
+/*    this.route.params
       .subscribe((params: Params) => {
-        this.cartItems = this.db.list(`/cart/${params['id']}`);
+        //this.cartItems = this.db.list(`/cart/${params['id']}`);
         this.orderItems = this.db.list(`/orders/${params['id']}`);
         this.getTotal()
-      })
+      })*/
   }
 
   deleteItem(key: string){
@@ -61,13 +69,43 @@ export class CartComponent implements OnInit {
   }
 
   placeOrder(){
+    var timestamp = new Date().getTime();
+
     this.cartItems.subscribe(items => {
       for(var i = 0 ; i < items.length; i++){
-        this.orderItems.push({total: this.total}).then(function(ref){
-          console.log("order key"+ref.key)
-        })
-        this.total += items[i].qty * items[i].unit_price
+        var orderKeyhere = "";
+        if (i == 0) {
+          var date =  new Date()
+          this.orderHistoryItems.push({order_total: this.total, dateOfOrder: date.toString(), order_id: timestamp.toString()})
+          .then(function(ref){
+            orderKeyhere = ref.key
+            console.log("orderKeyhere"+orderKeyhere)
+          })
+          .then(function(){
+            console.log("orderKeyhere in then "+orderKeyhere)
+
+          })
+          console.log("orderKeyhere outside push loop"+orderKeyhere)
+
+        } else {
+          console.log("orderKeyhere inside else loop"+orderKeyhere)
+
+          this.orderDetailItems = this.firebase.database.list(`/orderdetails/${this.userid}`);
+          this.total += items[i].qty * items[i].unit_price;
+          let orderDetailItem = new OrderDetailItem();
+          orderDetailItem.user_id = this.userid;
+          orderDetailItem.item_id = items[i].item_id;
+          orderDetailItem.name = items[i].name;
+          orderDetailItem.imgUrl = items[i].imgUrl;
+          orderDetailItem.qty = items[i].qty;
+          orderDetailItem.unit_price = items[i].unit_price;
+          orderDetailItem.order_id = timestamp.toString();
+          this.orderDetailItems.push(orderDetailItem)
+
+        }
       }
+      //this.orderHistoryItems.update(this.orderKey,{order_total: this.total})
+
     })
   }
 }
