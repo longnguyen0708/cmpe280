@@ -84,3 +84,17 @@
 .dropdown-menu li a:hover {
     background-color: #02a2ca !important;
 }
+
+@media (min-width: 768px) {
+  .navbar li a#zipcode {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 1270px) and (min-width: 768px){
+  .navbar li a#zipcode {
+    display: none;
+  }
+}
