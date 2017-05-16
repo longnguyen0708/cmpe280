@@ -10,7 +10,7 @@
   </thead>
   <tbody>
   	<tr *ngFor="let item of orderItems">
-  		<td data-th="OrderId" class="text-center">{{item.order_id}}</td>
+  		<td data-th="OrderId" class="text-center"><a [routerLink]="['/orderdetail', item.order_id]">{{item.order_id}}</a></td>
   		<td data-th="Subtotal" class="text-center">{{item.order_total | number: '1.2-2'}}</td>
       <td data-th="TransactionDate" class="text-center">{{item.dateOfOrder}}</td>
   	</tr>
