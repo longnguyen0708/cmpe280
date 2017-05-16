@@ -29,14 +29,21 @@ export class AppComponent implements OnInit {
           //this.user_displayName_fb = '';
           //this.user_email_fb = '';
           this.router.navigate(['login']);
-        } else {
+        }else if (auth.facebook){
+          this.isLoggedIn = true;
+          this.user_displayName = auth.facebook.displayName;
+          this.user_email = auth.facebook.email;
+          this.uid = auth.uid;
+          localStorage.setItem('uid', auth.uid);
+          console.log("Logged in");
+          console.log(auth);
+          this.router.navigate(['']);
+        }else if (auth.google){
           this.isLoggedIn = true;
           this.user_displayName = auth.google.displayName;
           this.user_email = auth.google.email;
           this.uid = auth.uid;
           localStorage.setItem('uid', auth.uid);
-          //this.user_displayName_fb = auth.facebook.displayName;
-          //this.user_email_fb = auth.facebook.email;
           console.log("Logged in");
           console.log(auth);
           this.router.navigate(['']);
