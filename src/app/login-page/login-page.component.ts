@@ -11,14 +11,17 @@ export class LoginPageComponent implements OnInit {
   ngOnInit() {
   }
   loginWithGoogle() {
-    this.authService.loginWithGoogle().then((data) => {
-      this.router.navigate(['']);
-    })
+    this.authService.loginWithGoogle()//.then((data) => {
+    //   console.log('loginWithGoogle', data)
+    //   this.router.navigate(['']);
+    // })
+
   }
 
   loginWithFacebook() {
-    this.authService.loginWithFacebook().then((data) => {
-      this.router.navigate(['']);
-    })
+    this.authService.loginWithFacebook()
+    // this.authService.loginWithFacebook().then((data) => {
+    //   this.router.navigate(['']);
+    // })
   }
 }

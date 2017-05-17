@@ -5,7 +5,6 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
 import { ActivatedRoute, Params } from '@angular/router'
 import { OrderHistoryItem } from '../model/orderHistoryItem';
 import { OrderDetailItem } from '../model/orderDetailItem';
-import { AngularFire } from 'angularfire2';
 import { AuthService } from '../service/auth.service';
 
 @Component({
@@ -25,12 +24,13 @@ export class CartComponent implements OnInit {
   userid: string = ""
 
   //constructor(private cartService: CartService) { }
-  constructor(db: AngularFireDatabase, private route: ActivatedRoute, private authService: AuthService, private firebase: AngularFire) {
+  constructor(db: AngularFireDatabase, private route: ActivatedRoute, private authService: AuthService) {
     console.log("constructor clalled");
 
     console.log("constructor clalled");
-    this.userid = this.authService.getuserid();
+    this.userid = localStorage.getItem('uid');//this.authService.getuserid();
     this.cartItems = db.list(`/cart/${this.userid}`);
+    this.orderDetailItems = db.list(`/orderdetails/${this.userid}`);
     this.orderHistoryItems = db.list(`/orders/${this.userid}`);
     console.log("the user id is " + this.authService.getuserid())
 
@@ -83,7 +83,6 @@ export class CartComponent implements OnInit {
           })
         }
 
-          this.orderDetailItems = this.firebase.database.list(`/orderdetails/${this.userid}`);
           this.total += items[i].qty * items[i].unit_price;
           let orderDetailItem = new OrderDetailItem();
           orderDetailItem.user_id = this.userid;

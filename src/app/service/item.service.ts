@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Item } from '../model/item';
 
-import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 
 @Injectable()
 export class ItemService {
 
-  constructor(private firebase: AngularFire) {
+  constructor(private db: AngularFireDatabase) {
   }
 
   getItems(cb) {
-    var items = this.firebase.database.list('/items');
+    var items = this.db.list('/items');
      items.subscribe(snapshots => {
        console.log("items", snapshots);
        cb(snapshots);
@@ -18,11 +18,11 @@ export class ItemService {
   }
 
   getItem(id): FirebaseObjectObservable<any>{
-    return this.firebase.database.object(`/items/${id}`);
+    return this.db.object(`/items/${id}`);
    }
 
    getItemsByCategory(cb, limit, category) {
-     var items = this.firebase.database.list('/items', {
+     var items = this.db.list('/items', {
        query: {
          limitToFirst: limit,
          orderByChild: 'category',
